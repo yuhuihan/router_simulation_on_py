@@ -85,7 +85,6 @@ class TOPOENV:
             for j in range(0, self.nodeNum):
                 self.probability[i][j] = action[i*self.nodeNum + j]
                 self.reach[i][j] = self.topo[i][j] * self.probability[i][j]
-        print(self.probability)
         self.getReachableMx()
         reward = self.getDelay()
         reward = -reward * 1000
@@ -176,7 +175,6 @@ class TOPOENV:
                     Nodes.append(candidateNodes[i])
             count = count + 1
             # 本算法依次计算始发节点的任务
-            print(sum_dst_candidateProbs, 1)
             if nodeProb[dstNode] > sum_dst_candidateProbs * 0.99:
                 first_candidateNodes.pop()
                 first_new_candidateProbs.pop()
